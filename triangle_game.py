@@ -45,14 +45,8 @@ class triPoint:
             d = 0
         self.next = self.point + d
         if self.bound:
-            if self.next[0] > 1:
-                self.next[0] = 1
-            elif self.next[0] < -1:
-                self.next[0] = -1
-            if self.next[1] > 1:
-                self.next[1] = 1
-            elif self.next[1] < -1:
-                self.next[1] = -1
+            self.next[0] = min(abs(self.next[0]), 1) * self.next[0]/abs(self.next[0])
+            self.next[1] = min(abs(self.next[1]), 1) * self.next[0]/abs(self.next[1])
 
 
     def updatePoint(self):
